@@ -251,8 +251,3 @@ Redshift charges for a running cluster regardless of whether queries are being r
 **Why Parquet in the processed layer and not JSON?**
 Athena reads columnar format significantly faster than row-based JSON because it only scans the columns referenced in the query. A query filtering by skill reads only the skill column, not the entire record. This directly reduces scan volume and cost.
 
----
-
-## Status
-
-Pipeline complete. Running in production on AWS.
