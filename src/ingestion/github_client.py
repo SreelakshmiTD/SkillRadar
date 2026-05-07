@@ -25,6 +25,7 @@ class GitHubClient:
         """
         Search GitHub for repos mentioning a skill in name, description or topics,
         created in the last N days.
+        Stores total_count as the real demand signal.
         Returns a list of structured repo records.
         """
         since_date = (datetime.utcnow() - timedelta(days=days_back)).strftime("%Y-%m-%d")
@@ -55,16 +56,17 @@ class GitHubClient:
                 return []
 
             data = response.json()
+            total_count = data.get("total_count", 0)
             repos = data.get("items", [])
-            logger.info(f"{skill}: found {len(repos)} repos")
+            logger.info(f"{skill}: total_count={total_count}, fetching top {len(repos)}")
 
-            return [self._parse_repo(repo, skill) for repo in repos]
+            return [self._parse_repo(repo, skill, total_count) for repo in repos]
 
         except Exception as e:
             logger.error(f"{skill}: error — {str(e)}")
             return []
 
-    def _parse_repo(self, repo: dict, skill: str) -> Dict:
+    def _parse_repo(self, repo: dict, skill: str, total_count: int) -> Dict:
         """Extract relevant fields from a GitHub repo response."""
         return {
             "repo_name":      repo["full_name"],
@@ -76,5 +78,6 @@ class GitHubClient:
             "updated_at":     repo.get("updated_at", ""),
             "url":            repo.get("html_url", ""),
             "searched_skill": skill,
+            "total_count":    total_count,
             "collected_at":   datetime.utcnow().isoformat()
         }
