@@ -1,0 +1,13 @@
+# Secrets -- NEVER commit these
+.env
+*.env
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# AWS
+*.zip
+.aws/
+# macOS
+.DS_Store
