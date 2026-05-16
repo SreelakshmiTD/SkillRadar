@@ -4,6 +4,7 @@ import os
 
 from github_client import GitHubClient
 from skill_extractor import extract_skills
+from scorer import compute_quality_score
 from s3_writer import S3Writer
 
 logger = logging.getLogger()
@@ -31,9 +32,11 @@ def lambda_handler(event, context):
 
         for repo in repos:
             matched_skills = extract_skills(repo)
+            quality_score = compute_quality_score(repo)
             record = {
                 **repo,
-                "matched_skills": matched_skills
+                "matched_skills": matched_skills,
+                "quality_score": quality_score
             }
             all_records.append(record)
 
