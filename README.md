@@ -68,10 +68,16 @@ Weighted quality scoring per repo using log-normalized stars, forks, and recency
 Multi-source ingestion. Adzuna job postings and YouTube tutorial counts added alongside GitHub. S3 partitioned by source. Three independent Athena tables queryable together to compare signals across sources.
 
 ### Phase 4 (Planned)
-Intelligence layer. PySpark aggregations on EMR Serverless. Emerging skill detection using GitHub topic frequency and co-occurrence analysis. Hype ratio scoring — cross-referencing GitHub, Adzuna, and YouTube signals to rank skills by real adoption vs hype.
+AI skill dictionary expansion. Automated discovery of emerging skills not in the initial tracked list. Hype vs real adoption classification using cross-source signal analysis.
 
 ### Phase 5 (Planned)
+Intelligence layer. PySpark aggregations on EMR Serverless. Hype ratio scoring by cross-referencing GitHub, Adzuna, and YouTube signals. Co-occurrence analysis to identify skill clusters and emerging technology pairs.
+
+### Phase 6 (Planned)
 Observability. CloudWatch metrics, SNS alerts on skill spikes, ingestion lag monitoring.
+
+### Phase 7 (Planned)
+Streamlit dashboard. Skill demand trends visualization over time. Cross-source signal comparison charts. Week-over-week growth rankings.
 
 ## Skills Tracked
 
