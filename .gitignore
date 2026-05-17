@@ -11,3 +11,5 @@ __pycache__/
 .aws/
 # macOS
 .DS_Store
+package/
+.env
