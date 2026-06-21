@@ -67,8 +67,8 @@ Weighted quality scoring per repo using log-normalized stars, forks, and recency
 ### Phase 3 (Complete)
 Multi-source ingestion. Adzuna job postings and YouTube tutorial counts added alongside GitHub. S3 partitioned by source. Three independent Athena tables queryable together to compare signals across sources.
 
-### Phase 4 (Planned)
-AI skill dictionary expansion. Automated discovery of emerging skills not in the initial tracked list. Hype vs real adoption classification using cross-source signal analysis.
+### Phase 4 (Complete)
+AI skill dictionary expansion. Tracked skills expanded from 31 to 43, adding langchain, llamaindex, crewai, huggingface, ollama, langgraph, autogen, openai, anthropic, rag, ray, vllm. All three ingestion sources (GitHub, Adzuna, YouTube) verified working with the full skill set.
 
 ### Phase 5 (Planned)
 Intelligence layer. PySpark aggregations on EMR Serverless. Hype ratio scoring by cross-referencing GitHub, Adzuna, and YouTube signals. Co-occurrence analysis to identify skill clusters and emerging technology pairs.
@@ -81,7 +81,7 @@ Streamlit dashboard. Skill demand trends visualization over time. Cross-source s
 
 ## Skills Tracked
 
-spark, pyspark, kafka, flink, airflow, prefect, dagster, dbt, iceberg, hudi, delta, snowflake, databricks, redshift, bigquery, trino, duckdb, polars, kubernetes, terraform, docker, python, scala, sql, elasticsearch, clickhouse, pinot, mlflow, datahub, openmetadata, great_expectations
+spark, pyspark, kafka, flink, airflow, prefect, dagster, dbt, iceberg, hudi, delta, snowflake, databricks, redshift, bigquery, trino, duckdb, polars, kubernetes, terraform, docker, python, scala, sql, elasticsearch, clickhouse, pinot, mlflow, datahub, openmetadata, great_expectations, langchain, llamaindex, crewai, huggingface, ollama, langgraph, autogen, openai, anthropic, rag, ray, vllm
 
 ## Running Locally
 
@@ -164,4 +164,4 @@ spark, pyspark, kafka, flink, airflow, prefect, dagster, dbt, iceberg, hudi, del
 
 ## Status
 
-Phases 1, 2, and 3 complete. Building in public. Follow along as each phase gets added.
+Phases 1, 2, 3, and 4 complete. Building in public. Phase 5 (intelligence layer) up next.
